@@ -46,6 +46,26 @@ node argus.js https://example.com --advanced-mode --proxies proxies.txt
 - **Advanced Performance Mode**: Provides higher performance crawling options and enhanced anonymity
 - **Cross-Platform Support**: Compatible with Windows, macOS, and Linux operating systems
 
+### 📄 Project Architecture
+
+```
+argus-crawler/
+├── src/                      # Core source code
+│   ├── ArgusCrawler.js       # Main crawler implementation
+│   ├── ProxyManager.js       # Proxy management and rotation
+│   └── utils.js              # Utility functions
+├── scripts/                  # Support scripts
+│   └── browser-setup.js      # Browser environment setup
+├── examples/                 # Usage examples
+│   └── basic-usage.js        # Basic demo
+├── tests/                    # Test files
+│   └── basic.test.js         # Core functionality tests
+├── argus.js                  # Main executable
+├── package.json              # Project metadata
+├── README.md                 # Documentation
+└── LICENSE                   # MIT License
+```
+
 ### 🚀 Installation
 
 #### Prerequisites
@@ -254,6 +274,22 @@ output_dir/
         └── sample.jpg
 ```
 
+### 📊 Screenshot Examples
+
+<details>
+<summary>Click to view screenshots</summary>
+
+#### Command Line Output
+![Command Line Output](https://via.placeholder.com/800x300/222222/FFFFFF?text=Command+Line+Output)
+
+#### Markdown Output Example
+![Markdown Result](https://via.placeholder.com/800x300/333333/FFFFFF?text=Markdown+Result)
+
+#### XLSX Output Example
+![XLSX Result](https://via.placeholder.com/800x300/444444/FFFFFF?text=XLSX+Result)
+
+</details>
+
 ### 🔧 Troubleshooting
 
 #### Browser Initialization Problems
@@ -346,6 +382,26 @@ node argus.js https://example.com --advanced-mode --proxies proxies.txt
 - **隐私保护**：加密日志记录，保护用户隐私
 - **高级性能模式**：提供更高性能的爬取选项和增强的匿名性
 - **跨平台支持**：兼容 Windows、macOS 和 Linux 系统
+
+### 📄 项目架构
+
+```
+argus-crawler/
+├── src/                      # 核心源代码
+│   ├── ArgusCrawler.js       # 主爬虫实现
+│   ├── ProxyManager.js       # 代理管理和轮换
+│   └── utils.js              # 工具函数
+├── scripts/                  # 支持脚本
+│   └── browser-setup.js      # 浏览器环境设置
+├── examples/                 # 使用示例
+│   └── basic-usage.js        # 基本演示
+├── tests/                    # 测试文件
+│   └── basic.test.js         # 核心功能测试
+├── argus.js                  # 主执行文件
+├── package.json              # 项目元数据
+├── README.md                 # 文档
+└── LICENSE                   # MIT许可证
+```
 
 ### 🚀 安装
 
@@ -554,6 +610,22 @@ output_dir/
     └── images/
         └── sample.jpg
 ```
+
+### 📊 截图示例
+
+<details>
+<summary>点击查看截图</summary>
+
+#### 命令行输出
+![命令行输出](https://via.placeholder.com/800x300/222222/FFFFFF?text=命令行输出)
+
+#### Markdown输出示例
+![Markdown结果](https://via.placeholder.com/800x300/333333/FFFFFF?text=Markdown结果)
+
+#### XLSX输出示例
+![XLSX结果](https://via.placeholder.com/800x300/444444/FFFFFF?text=XLSX结果)
+
+</details>
 
 ### 🔧 问题排查
 
