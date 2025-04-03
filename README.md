@@ -1,4 +1,4 @@
-# Argus Web Crawler | 网页爬虫工具
+# <div align="center">Argus Web Crawler | 网页爬虫工具</div>
 
 <div align="center">
 
@@ -11,8 +11,6 @@
 [中文](#中文) | [English](#english)
 
 </div>
-
-<img src="https://via.placeholder.com/800x200/0078D7/FFFFFF?text=Argus+Web+Crawler" alt="Argus Banner" width="100%"/>
 
 <a id="中文"></a>
 
