@@ -28,8 +28,8 @@
 
 ```bash
 # 克隆您fork的仓库
-git clone https://github.com/your-username/argus.git
-cd argus
+git clone https://github.com/BreCaspian/argus-crawler.git
+cd argus-crawler
 
 # 安装依赖
 npm install

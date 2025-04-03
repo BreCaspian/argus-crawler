@@ -1,1 +1,47 @@
- 
+# Development files
+.git
+.github
+.gitignore
+.eslintrc.js
+.prettierrc
+.vscode
+.idea
+*.log
+*.tgz
+
+# Test files
+test/
+tests/
+__tests__/
+coverage/
+.nyc_output/
+
+# Documentation
+docs/
+examples/
+*.md
+!README.md
+!CHANGELOG.md
+
+# Source code (if you're publishing compiled code)
+# src/
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Dependency directories
+node_modules/
+
+# Development samples
+samples/
+demo/
+temp/
+tmp/
+
+# Development data and local config
+argus_data/
+.env
+.env.*
+config.local.js 

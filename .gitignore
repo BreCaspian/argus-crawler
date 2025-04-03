@@ -1,21 +1,52 @@
 # 依赖目录
 node_modules/
+jspm_packages/
 
 # 日志
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # 爬取数据目录
+argus_data/
 crawled_data/
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# 临时文件
+.tmp/
+.temp/
+tmp/
+temp/
 
 # 运行时数据
 .env
+.env.*
 .DS_Store
 
 # IDE 相关
 .idea/
 .vscode/
+*.sublime-project
+*.sublime-workspace
 *.swp
-*.swo 
+*.swo
+
+# 构建目录
+dist/
+build/
+out/
+
+# 包管理器
+yarn.lock
+package-lock.json
+.npm/
+
+# 操作系统生成的文件
+Thumbs.db
+desktop.ini 
