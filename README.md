@@ -20,8 +20,10 @@ Argus 是一款全自动网页爬虫工具，能够自动绕过防爬虫保护�
 
 ### ⚡ 快速开始
 
+#### 方法一：直接安装
+
 ```bash
-# 克隆仓库
+# 克隆仓库或下载项目到本地
 git clone https://github.com/BreCaspian/argus-crawler.git
 cd argus-crawler
 
@@ -30,9 +32,19 @@ npm install
 
 # 基本用法
 node argus.js https://example.com
+```
+
+#### 方法二：使用npm CLI
+
+```bash
+# 安装全局包
+npm install -g argus-crawler
+
+# 基本用法
+argus https://example.com
 
 # 使用高级模式和代理
-node argus.js https://example.com --advanced-mode --proxies proxies.txt
+argus https://example.com --advanced-mode --proxies proxies.txt
 ```
 
 ### ✨ 特性
@@ -357,8 +369,10 @@ Argus is a powerful automated web crawler tool that can bypass anti-crawler prot
 
 ### ⚡ Quick Start
 
+#### Method 1: Direct Installation
+
 ```bash
-# Clone repository
+# Clone repository or download the project
 git clone https://github.com/BreCaspian/argus-crawler.git
 cd argus-crawler
 
@@ -367,9 +381,19 @@ npm install
 
 # Basic usage
 node argus.js https://example.com
+```
+
+#### Method 2: Using npm CLI
+
+```bash
+# Install globally via npm
+npm install -g argus-crawler
+
+# Basic usage
+argus https://example.com
 
 # Advanced mode with proxy
-node argus.js https://example.com --advanced-mode --proxies proxies.txt
+argus https://example.com --advanced-mode --proxies proxies.txt
 ```
 
 ### ✨ Features
