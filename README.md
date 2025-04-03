@@ -4,7 +4,6 @@
 
 [![License](https://img.shields.io/github/license/BreCaspian/argus-crawler)](https://github.com/BreCaspian/argus-crawler/blob/main/LICENSE)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org)
-[![NPM Version](https://img.shields.io/badge/npm-v1.1.0-blue)](https://www.npmjs.com/package/argus-crawler)
 [![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey)](https://github.com/BreCaspian/argus-crawler)
 
 [English](#english) | [中文](#中文)
@@ -22,14 +21,18 @@ Argus is a powerful automated web crawler tool that can bypass anti-crawler prot
 ### ⚡ Quick Start
 
 ```bash
-# Install
-npm install -g argus-crawler
+# Clone repository
+git clone https://github.com/BreCaspian/argus-crawler.git
+cd argus-crawler
+
+# Install dependencies
+npm install
 
 # Basic usage
-argus https://example.com
+node argus.js https://example.com
 
 # Advanced mode with proxy
-argus https://example.com --advanced-mode --proxies proxies.txt
+node argus.js https://example.com --advanced-mode --proxies proxies.txt
 ```
 
 ### ✨ Features
@@ -51,15 +54,9 @@ argus https://example.com --advanced-mode --proxies proxies.txt
 - Node.js 16.x or higher
 - npm or yarn package manager
 
-#### Installation Methods
+#### Installation Method
 
-**Method 1: Global Installation (Recommended)**
-
-```bash
-npm install -g argus-crawler
-```
-
-**Method 2: Clone from GitHub**
+**Clone from GitHub**
 
 ```bash
 git clone https://github.com/BreCaspian/argus-crawler.git
@@ -94,24 +91,20 @@ Argus is fully compatible with all major operating systems:
 
 - **Windows**:
   ```
-  argus <url> [options]
-  # or if installed locally
   node argus.js <url> [options]
   ```
 
 - **macOS**:
   ```
-  argus <url> [options]
-  # or if installed locally
   ./argus.js <url> [options]
+  # or
   node argus.js <url> [options]
   ```
 
 - **Linux**:
   ```
-  argus <url> [options]
-  # or if installed locally
   ./argus.js <url> [options]
+  # or
   node argus.js <url> [options]
   ```
 
@@ -126,7 +119,7 @@ Argus is fully compatible with all major operating systems:
 The simplest usage is to directly provide the target website URL:
 
 ```bash
-argus https://crawler-test.com
+node argus.js https://crawler-test.com
 ```
 
 This will crawl the website using default settings and save the results in the `argus_data` folder in the current directory.
@@ -159,13 +152,10 @@ Argus also provides some special commands:
 
 ```bash
 # Test environment and dependencies
-argus test-env
+node argus.js test-env
 
 # Decrypt encrypted files
-argus decrypt <encrypted_file> --key <key> --output <output_file>
-
-# Check for updates
-argus update-check
+node argus.js decrypt <encrypted_file> --key <key> --output <output_file>
 ```
 
 ### 📝 Usage Examples
@@ -173,7 +163,7 @@ argus update-check
 #### Using a proxy list:
 
 ```bash
-argus https://crawler-test.com --proxies proxies.txt
+node argus.js https://crawler-test.com --proxies proxies.txt
 ```
 
 The proxy file should contain one proxy server address per line, e.g., `http://123.45.67.89:8080`.
@@ -181,7 +171,7 @@ The proxy file should contain one proxy server address per line, e.g., `http://1
 #### Limiting crawl depth:
 
 ```bash
-argus https://crawler-test.com --depth 2
+node argus.js https://crawler-test.com --depth 2
 ```
 
 This will crawl the starting page plus its linked pages and their linked pages (2 levels in total).
@@ -189,7 +179,7 @@ This will crawl the starting page plus its linked pages and their linked pages (
 #### Adjusting request delay:
 
 ```bash
-argus https://crawler-test.com --delay 2000
+node argus.js https://crawler-test.com --delay 2000
 ```
 
 This sets a 2-second delay between requests, reducing pressure on the target website.
@@ -198,19 +188,19 @@ This sets a 2-second delay between requests, reducing pressure on the target web
 
 ```bash
 # Crawl test page with multiple tables
-argus https://crawler-test.com/tables --format xlsx
+node argus.js https://crawler-test.com/tables --format xlsx
 
 # Crawl page with various link types
-argus https://crawler-test.com/links/simple --depth 2
+node argus.js https://crawler-test.com/links/simple --depth 2
 
 # Crawl page with images and download resources
-argus https://crawler-test.com/image_jpeg --download-resources
+node argus.js https://crawler-test.com/image_jpeg --download-resources
 ```
 
 #### Enabling advanced performance mode:
 
 ```bash
-argus https://crawler-test.com --advanced-mode
+node argus.js https://crawler-test.com --advanced-mode
 ```
 
 Enable advanced performance mode for more efficient crawling and stronger privacy protection.
@@ -332,14 +322,18 @@ Argus 是一款全自动网页爬虫工具，能够自动绕过防爬虫保护�
 ### ⚡ 快速开始
 
 ```bash
-# 安装
-npm install -g argus-crawler
+# 克隆仓库
+git clone https://github.com/BreCaspian/argus-crawler.git
+cd argus-crawler
+
+# 安装依赖
+npm install
 
 # 基本用法
-argus https://example.com
+node argus.js https://example.com
 
 # 使用高级模式和代理
-argus https://example.com --advanced-mode --proxies proxies.txt
+node argus.js https://example.com --advanced-mode --proxies proxies.txt
 ```
 
 ### ✨ 特性
@@ -363,13 +357,7 @@ argus https://example.com --advanced-mode --proxies proxies.txt
 
 #### 安装方法
 
-**方法1：全局安装（推荐）**
-
-```bash
-npm install -g argus-crawler
-```
-
-**方法2：从GitHub克隆**
+**从GitHub克隆**
 
 ```bash
 git clone https://github.com/BreCaspian/argus-crawler.git
@@ -404,24 +392,20 @@ Argus 完全兼容所有主要操作系统：
 
 - **Windows**：
   ```
-  argus <url> [选项]
-  # 或者如果本地安装
   node argus.js <url> [选项]
   ```
 
 - **macOS**：
   ```
-  argus <url> [选项]
-  # 或者如果本地安装
   ./argus.js <url> [选项]
+  # 或
   node argus.js <url> [选项]
   ```
 
 - **Linux**：
   ```
-  argus <url> [选项]
-  # 或者如果本地安装
   ./argus.js <url> [选项]
+  # 或
   node argus.js <url> [选项]
   ```
 
@@ -436,7 +420,7 @@ Argus 完全兼容所有主要操作系统：
 最简单的用法是直接提供目标网站 URL：
 
 ```bash
-argus https://crawler-test.com
+node argus.js https://crawler-test.com
 ```
 
 这将使用默认设置爬取网站，并将结果保存在当前目录的 `argus_data` 文件夹中。
@@ -469,13 +453,10 @@ Argus 还提供了一些特殊命令：
 
 ```bash
 # 测试环境和依赖项
-argus test-env
+node argus.js test-env
 
 # 解密已加密的文件
-argus decrypt <加密文件> --key <密钥> --output <输出文件>
-
-# 检查更新
-argus update-check
+node argus.js decrypt <加密文件> --key <密钥> --output <输出文件>
 ```
 
 ### 📝 使用示例
@@ -483,7 +464,7 @@ argus update-check
 #### 使用代理列表：
 
 ```bash
-argus https://crawler-test.com --proxies proxies.txt
+node argus.js https://crawler-test.com --proxies proxies.txt
 ```
 
 代理文件应该每行包含一个代理服务器地址，例如：`http://123.45.67.89:8080`。
@@ -491,7 +472,7 @@ argus https://crawler-test.com --proxies proxies.txt
 #### 限制爬取深度：
 
 ```bash
-argus https://crawler-test.com --depth 2
+node argus.js https://crawler-test.com --depth 2
 ```
 
 这将爬取起始页面以及它直接链接的页面及其链接的页面（总共 2 层）。
@@ -499,7 +480,7 @@ argus https://crawler-test.com --depth 2
 #### 调整请求延迟：
 
 ```bash
-argus https://crawler-test.com --delay 2000
+node argus.js https://crawler-test.com --delay 2000
 ```
 
 这将在请求之间设置 2 秒的延迟，减少对目标网站的压力。
@@ -508,19 +489,19 @@ argus https://crawler-test.com --delay 2000
 
 ```bash
 # 爬取包含多个表格的测试页面
-argus https://crawler-test.com/tables --format xlsx
+node argus.js https://crawler-test.com/tables --format xlsx
 
 # 爬取包含各种链接类型的页面
-argus https://crawler-test.com/links/simple --depth 2
+node argus.js https://crawler-test.com/links/simple --depth 2
 
 # 爬取包含图片的页面并下载资源
-argus https://crawler-test.com/image_jpeg --download-resources
+node argus.js https://crawler-test.com/image_jpeg --download-resources
 ```
 
 #### 启用高级性能模式：
 
 ```bash
-argus https://crawler-test.com --advanced-mode
+node argus.js https://crawler-test.com --advanced-mode
 ```
 
 启用高级性能模式，提供更高效的爬取和更强的隐私保护。
