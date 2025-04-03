@@ -1,4 +1,4 @@
-# **Argus Web Crawler | 网页爬虫工具**
+# Argus Web Crawler | 网页爬虫工具
 
 <div align="center">
 [![License](https://img.shields.io/github/license/BreCaspian/argus-crawler)](https://github.com/BreCaspian/argus-crawler/blob/main/LICENSE)
@@ -7,9 +7,11 @@
 
 [English](#english) | [中文](#中文)
 
+</div>
 
+<img src="https://via.placeholder.com/800x200/0078D7/FFFFFF?text=Argus+Web+Crawler" alt="Argus Banner" width="100%"/>
 
-<img src="D:\Desktop\images.jpg" alt="images" style="zoom:200%;" />
+<a id="english"></a>
 
 ## 🌐 English
 
