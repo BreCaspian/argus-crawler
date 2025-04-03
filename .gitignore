@@ -1,0 +1,21 @@
+# 依赖目录
+node_modules/
+
+# 日志
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 爬取数据目录
+crawled_data/
+
+# 运行时数据
+.env
+.DS_Store
+
+# IDE 相关
+.idea/
+.vscode/
+*.swp
+*.swo 

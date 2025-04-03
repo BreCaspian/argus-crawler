@@ -1,0 +1,52 @@
+{
+  "name": "argus-crawler",
+  "version": "1.1.0",
+  "description": "Argus Web Crawler - 高效的网页抓取与内容提取工具",
+  "main": "argus.js",
+  "bin": {
+    "argus": "./argus.js"
+  },
+  "scripts": {
+    "start": "node argus.js",
+    "test": "node test/testCrawler.js",
+    "postinstall": "node scripts/browser-setup.js"
+  },
+  "keywords": [
+    "web-crawler",
+    "scraper",
+    "puppeteer",
+    "playwright",
+    "content-extraction",
+    "web-automation"
+  ],
+  "author": "Argus Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "apify": "^3.1.8",
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "commander": "^11.1.0",
+    "crypto-js": "^4.1.1",
+    "exceljs": "^4.3.0",
+    "ora": "^5.4.1",
+    "playwright": "^1.40.1",
+    "puppeteer": "^21.5.1",
+    "turndown": "^7.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0"
+  },
+  "os": [
+    "win32",
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
+} 
