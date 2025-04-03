@@ -1,352 +1,18 @@
 # Argus Web Crawler | 网页爬虫工具
 
 <div align="center">
-[![License](https://img.shields.io/github/license/BreCaspian/argus-crawler)](https://github.com/BreCaspian/argus-crawler/blob/main/LICENSE)
-[![Node Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org)
-[![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey)](https://github.com/BreCaspian/argus-crawler)
 
-[English](#english) | [中文](#中文)
+[![License](https://img.shields.io/github/license/BreCaspian/argus-crawler?color=blue&style=flat-square)](https://github.com/BreCaspian/argus-crawler/blob/main/LICENSE)
+[![Node Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen?style=flat-square)](https://nodejs.org)
+[![Platform](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey?style=flat-square)](https://github.com/BreCaspian/argus-crawler)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/BreCaspian/argus-crawler/pulls)
+[![Last Commit](https://img.shields.io/github/last-commit/BreCaspian/argus-crawler?style=flat-square)](https://github.com/BreCaspian/argus-crawler/commits/main)
+
+[中文](#中文) | [English](#english)
 
 </div>
 
 <img src="https://via.placeholder.com/800x200/0078D7/FFFFFF?text=Argus+Web+Crawler" alt="Argus Banner" width="100%"/>
-
-<a id="english"></a>
-
-## 🌐 English
-
-Argus is a powerful automated web crawler tool that can bypass anti-crawler protection, protect the privacy of the crawler, and convert content to Markdown or XLSX formats.
-
-### ⚡ Quick Start
-
-```bash
-# Clone repository
-git clone https://github.com/BreCaspian/argus-crawler.git
-cd argus-crawler
-
-# Install dependencies
-npm install
-
-# Basic usage
-node argus.js https://example.com
-
-# Advanced mode with proxy
-node argus.js https://example.com --advanced-mode --proxies proxies.txt
-```
-
-### ✨ Features
-
-- **Automated Crawling**: Just input the starting URL and automatically crawl the entire website
-- **Anti-Crawler Technology**: Automatically bypass JavaScript challenges, CAPTCHAs, and browser fingerprint detection
-- **IP Protection**: Support proxy rotation and user agent rotation to avoid being banned
-- **Smart Content Extraction**: Automatically extract the main content of the page and filter out noise
-- **Multiple Output Formats**: Automatically select the appropriate format (Markdown, XLSX, or mixed) based on content characteristics
-- **Structured Storage**: Organize files according to website architecture for easy retrieval and management
-- **Privacy Protection**: Encrypted logging to protect user privacy
-- **Advanced Performance Mode**: Provides higher performance crawling options and enhanced anonymity
-- **Cross-Platform Support**: Compatible with Windows, macOS, and Linux operating systems
-
-### 📄 Project Architecture
-
-```
-argus-crawler/
-├── src/                      # Core source code
-│   ├── ArgusCrawler.js       # Main crawler implementation
-│   ├── ProxyManager.js       # Proxy management and rotation
-│   └── utils.js              # Utility functions
-├── scripts/                  # Support scripts
-│   └── browser-setup.js      # Browser environment setup
-├── examples/                 # Usage examples
-│   └── basic-usage.js        # Basic demo
-├── tests/                    # Test files
-│   └── basic.test.js         # Core functionality tests
-├── argus.js                  # Main executable
-├── package.json              # Project metadata
-├── README.md                 # Documentation
-└── LICENSE                   # MIT License
-```
-
-### 🚀 Installation
-
-#### Prerequisites
-
-- Node.js 16.x or higher
-- npm or yarn package manager
-
-#### Installation Method
-
-**Clone from GitHub**
-
-```bash
-git clone https://github.com/BreCaspian/argus-crawler.git
-cd argus-crawler
-npm install
-```
-
-#### Browser Engine Installation
-
-Argus uses Playwright as its browser engine. After installing dependencies, the system will automatically try to install the required browsers. If automatic installation fails, you can install manually:
-
-```bash
-# Install all supported browsers
-npx playwright install
-
-# Only install Chromium (recommended, smaller footprint)
-npx playwright install chromium
-   
-# On Linux, you may need additional system dependencies
-npx playwright install-deps
-```
-
-#### Make the tool executable (Linux/macOS only)
-
-```bash
-chmod +x argus.js
-```
-
-### 🖥️ Cross-Platform Usage
-
-Argus is fully compatible with all major operating systems:
-
-- **Windows**:
-  ```
-  node argus.js <url> [options]
-  ```
-
-- **macOS**:
-  ```
-  ./argus.js <url> [options]
-  # or
-  node argus.js <url> [options]
-  ```
-
-- **Linux**:
-  ```
-  ./argus.js <url> [options]
-  # or
-  node argus.js <url> [options]
-  ```
-
-#### Platform-Specific Notes
-
-- **Windows**: On Windows, the tool automatically detects and uses the appropriate browser paths
-- **macOS**: On macOS, additional permissions might be required to access certain system directories
-- **Linux**: On Linux systems, additional dependencies might be needed for browser automation. Use `npx playwright install-deps` to install required system packages
-
-### 📖 Basic Usage
-
-The simplest usage is to directly provide the target website URL:
-
-```bash
-node argus.js https://crawler-test.com
-```
-
-This will crawl the website using default settings and save the results in the `argus_data` folder in the current directory.
-
-### 🛠️ Command Line Options
-
-| Option | Short | Description | Default |
-|--------|-------|-------------|---------|
-| `--output-dir <path>` | `-o` | Specify output directory | `./argus_data` |
-| `--proxies <file>` | `-p` | Specify proxy list file | None |
-| `--depth <number>` | `-d` | Set crawl depth (1 means only crawl the starting page and its direct links) | `1` |
-| `--delay <ms>` | `-w` | Delay between requests (milliseconds) | `1000` |
-| `--format <format>` | `-f` | Output format (markdown/xlsx/html/auto) | `auto` |
-| `--encrypt` | `-e` | Encrypt output content | `false` |
-| `--key <key>` | `-k` | Encryption/decryption key | `argus-default-key` |
-| `--advanced-mode` | `-a` | Enable advanced performance mode | `false` |
-| `--test-proxies` | N/A | Test proxy validity before use | `false` |
-| `--max-concurrency <number>` | N/A | Maximum concurrent requests | `10` (standard) / `25` (advanced) |
-| `--max-requests <number>` | N/A | Maximum total requests | `1000` (standard) / `5000` (advanced) |
-| `--navigation-timeout <ms>` | N/A | Page navigation timeout (milliseconds) | `60000` (standard) / `120000` (advanced) |
-| `--no-browser-check` | N/A | Skip browser dependency check | `false` |
-| `--download-resources` | N/A | Download page resources (images, etc.) | `false` |
-| `--max-file-size <MB>` | N/A | Maximum file size for downloaded resources (MB) | `10` |
-| `--help`, `-h` | N/A | Display help information | N/A |
-| `--version`, `-v` | N/A | Display version number | N/A |
-
-### 🧰 Special Commands
-
-Argus also provides some special commands:
-
-```bash
-# Test environment and dependencies
-node argus.js test-env
-
-# Decrypt encrypted files
-node argus.js decrypt <encrypted_file> --key <key> --output <output_file>
-```
-
-### 📝 Usage Examples
-
-#### Using a proxy list:
-
-```bash
-node argus.js https://crawler-test.com --proxies proxies.txt
-```
-
-The proxy file should contain one proxy server address per line, e.g., `http://123.45.67.89:8080`.
-
-#### Limiting crawl depth:
-
-```bash
-node argus.js https://crawler-test.com --depth 2
-```
-
-This will crawl the starting page plus its linked pages and their linked pages (2 levels in total).
-
-#### Adjusting request delay:
-
-```bash
-node argus.js https://crawler-test.com --delay 2000
-```
-
-This sets a 2-second delay between requests, reducing pressure on the target website.
-
-#### Crawling specific test pages on crawler-test.com:
-
-```bash
-# Crawl test page with multiple tables
-node argus.js https://crawler-test.com/tables --format xlsx
-
-# Crawl page with various link types
-node argus.js https://crawler-test.com/links/simple --depth 2
-
-# Crawl page with images and download resources
-node argus.js https://crawler-test.com/image_jpeg --download-resources
-```
-
-#### Enabling advanced performance mode:
-
-```bash
-node argus.js https://crawler-test.com --advanced-mode
-```
-
-Enable advanced performance mode for more efficient crawling and stronger privacy protection.
-
-### 🔒 Advanced Performance Mode
-
-Advanced performance mode (`--advanced-mode`) is designed for users who need more efficient crawling and stronger privacy protection. It offers:
-
-- **Higher concurrency**: Default concurrent requests increased from 10 to 25
-- **Broader coverage**: Default maximum requests increased from 1000 to 5000
-- **Longer patience**: Page navigation timeout increased from 60 seconds to 120 seconds
-- **Enhanced stealth**: More browser fingerprint spoofing techniques
-- **Enhanced proxy usage**: Smarter proxy rotation and failover
-- **Stronger content extraction**: Improved resource extraction and processing capabilities
-- **Randomization**: Randomize viewport sizes, request headers, and other parameters
-
-When using advanced mode, consider these recommendations:
-
-1. Strongly recommended to use a proxy list (`--proxies`)
-2. Consider using the proxy testing feature (`--test-proxies`) to ensure proxy validity
-3. Adjust the delay (`--delay`) if the target website is load-sensitive
-4. Be mindful of the website's terms of service and local laws and regulations
-
-### 📊 How It Works
-
-Argus uses the following technologies to achieve powerful crawling capabilities:
-
-1. **PlaywrightCrawler**: Handles page rendering and navigation
-2. **Puppeteer + Stealth plugins**: Bypasses anti-crawler detection
-3. **Proxy and user agent rotation**: Hides real IP
-4. **Intelligent content analysis**: Chooses appropriate saving format based on content type
-5. **Queue management**: Efficiently processes large numbers of page requests
-6. **Error handling**: Automatically retries failed requests
-
-### 📁 Output File Organization
-
-The crawled content will be organized according to the following structure:
-
-```
-output_dir/
-├── crawler-test.com/
-│   ├── tables/
-│   │   ├── nested.md
-│   │   └── nested.xlsx
-│   ├── links/
-│   │   └── simple.md
-│   └── index.md
-├── logs/
-│   └── crawler.log
-└── downloads/
-    └── images/
-        └── sample.jpg
-```
-
-### 📊 Screenshot Examples
-
-<details>
-<summary>Click to view screenshots</summary>
-
-#### Command Line Output
-![Command Line Output](https://via.placeholder.com/800x300/222222/FFFFFF?text=Command+Line+Output)
-
-#### Markdown Output Example
-![Markdown Result](https://via.placeholder.com/800x300/333333/FFFFFF?text=Markdown+Result)
-
-#### XLSX Output Example
-![XLSX Result](https://via.placeholder.com/800x300/444444/FFFFFF?text=XLSX+Result)
-
-</details>
-
-### 🔧 Troubleshooting
-
-#### Browser Initialization Problems
-
-If you encounter browser initialization problems:
-
-1. Ensure Playwright's browsers are installed: `npx playwright install`
-2. On Linux, install system dependencies: `npx playwright install-deps`
-3. Try running with `--no-browser-check` flag if you've already installed browsers in a custom location
-4. Check if your system meets Playwright's requirements
-
-#### Proxy Issues
-
-If you're having trouble with proxies:
-
-1. Verify proxy format (e.g., `http://user:pass@hostname:port`)
-2. Use the `--test-proxies` flag to validate proxies before crawling
-3. Ensure you have permission to use the proxies
-4. Check network connectivity from your machine to the proxies
-
-#### Content Not Being Saved Correctly
-
-If content extraction doesn't work as expected:
-
-1. Check if the target website uses unusual markup structures
-2. Try different output formats (`--format markdown` or `--format xlsx`)
-3. Increase the navigation timeout for complex pages (`--navigation-timeout 120000`)
-4. For debugging, use `--debug` flag to see detailed logs
-
-### 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -am 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Create a new Pull Request
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-### ⚠️ Notice
-
-When using Argus, please:
-
-- Respect the target website's terms of service
-- Comply with local laws and regulations
-- Do not cause excessive load on the target website
-- Use only for legitimate purposes such as data analysis and research
-
-Be especially mindful of these considerations when using advanced performance mode.
-
-### 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 <a id="中文"></a>
 
@@ -681,4 +347,341 @@ output_dir/
 
 ### 📄 许可证
 
-本项目采用MIT许可证 - 详情请参阅[LICENSE](LICENSE)文件。 
+本项目采用MIT许可证 - 详情请参阅[LICENSE](LICENSE)文件。
+
+---
+
+<a id="english"></a>
+
+## 🌐 English
+
+Argus is a powerful automated web crawler tool that can bypass anti-crawler protection, protect the privacy of the crawler, and convert content to Markdown or XLSX formats.
+
+### ⚡ Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/BreCaspian/argus-crawler.git
+cd argus-crawler
+
+# Install dependencies
+npm install
+
+# Basic usage
+node argus.js https://example.com
+
+# Advanced mode with proxy
+node argus.js https://example.com --advanced-mode --proxies proxies.txt
+```
+
+### ✨ Features
+
+- **Automated Crawling**: Just input the starting URL and automatically crawl the entire website
+- **Anti-Crawler Technology**: Automatically bypass JavaScript challenges, CAPTCHAs, and browser fingerprint detection
+- **IP Protection**: Support proxy rotation and user agent rotation to avoid being banned
+- **Smart Content Extraction**: Automatically extract the main content of the page and filter out noise
+- **Multiple Output Formats**: Automatically select the appropriate format (Markdown, XLSX, or mixed) based on content characteristics
+- **Structured Storage**: Organize files according to website architecture for easy retrieval and management
+- **Privacy Protection**: Encrypted logging to protect user privacy
+- **Advanced Performance Mode**: Provides higher performance crawling options and enhanced anonymity
+- **Cross-Platform Support**: Compatible with Windows, macOS, and Linux operating systems
+
+### 📄 Project Architecture
+
+```
+argus-crawler/
+├── src/                      # Core source code
+│   ├── ArgusCrawler.js       # Main crawler implementation
+│   ├── ProxyManager.js       # Proxy management and rotation
+│   └── utils.js              # Utility functions
+├── scripts/                  # Support scripts
+│   └── browser-setup.js      # Browser environment setup
+├── examples/                 # Usage examples
+│   └── basic-usage.js        # Basic demo
+├── tests/                    # Test files
+│   └── basic.test.js         # Core functionality tests
+├── argus.js                  # Main executable
+├── package.json              # Project metadata
+├── README.md                 # Documentation
+└── LICENSE                   # MIT License
+```
+
+### 🚀 Installation
+
+#### Prerequisites
+
+- Node.js 16.x or higher
+- npm or yarn package manager
+
+#### Installation Method
+
+**Clone from GitHub**
+
+```bash
+git clone https://github.com/BreCaspian/argus-crawler.git
+cd argus-crawler
+npm install
+```
+
+#### Browser Engine Installation
+
+Argus uses Playwright as its browser engine. After installing dependencies, the system will automatically try to install the required browsers. If automatic installation fails, you can install manually:
+
+```bash
+# Install all supported browsers
+npx playwright install
+
+# Only install Chromium (recommended, smaller footprint)
+npx playwright install chromium
+   
+# On Linux, you may need additional system dependencies
+npx playwright install-deps
+```
+
+#### Make the tool executable (Linux/macOS only)
+
+```bash
+chmod +x argus.js
+```
+
+### 🖥️ Cross-Platform Usage
+
+Argus is fully compatible with all major operating systems:
+
+- **Windows**:
+  ```
+  node argus.js <url> [options]
+  ```
+
+- **macOS**:
+  ```
+  ./argus.js <url> [options]
+  # or
+  node argus.js <url> [options]
+  ```
+
+- **Linux**:
+  ```
+  ./argus.js <url> [options]
+  # or
+  node argus.js <url> [options]
+  ```
+
+#### Platform-Specific Notes
+
+- **Windows**: On Windows, the tool automatically detects and uses the appropriate browser paths
+- **macOS**: On macOS, additional permissions might be required to access certain system directories
+- **Linux**: On Linux systems, additional dependencies might be needed for browser automation. Use `npx playwright install-deps` to install required system packages
+
+### 📖 Basic Usage
+
+The simplest usage is to directly provide the target website URL:
+
+```bash
+node argus.js https://crawler-test.com
+```
+
+This will crawl the website using default settings and save the results in the `argus_data` folder in the current directory.
+
+### 🛠️ Command Line Options
+
+| Option | Short | Description | Default |
+|--------|-------|-------------|---------|
+| `--output-dir <path>` | `-o` | Specify output directory | `./argus_data` |
+| `--proxies <file>` | `-p` | Specify proxy list file | None |
+| `--depth <number>` | `-d` | Set crawl depth (1 means only crawl the starting page and its direct links) | `1` |
+| `--delay <ms>` | `-w` | Delay between requests (milliseconds) | `1000` |
+| `--format <format>` | `-f` | Output format (markdown/xlsx/html/auto) | `auto` |
+| `--encrypt` | `-e` | Encrypt output content | `false` |
+| `--key <key>` | `-k` | Encryption/decryption key | `argus-default-key` |
+| `--advanced-mode` | `-a` | Enable advanced performance mode | `false` |
+| `--test-proxies` | N/A | Test proxy validity before use | `false` |
+| `--max-concurrency <number>` | N/A | Maximum concurrent requests | `10` (standard) / `25` (advanced) |
+| `--max-requests <number>` | N/A | Maximum total requests | `1000` (standard) / `5000` (advanced) |
+| `--navigation-timeout <ms>` | N/A | Page navigation timeout (milliseconds) | `60000` (standard) / `120000` (advanced) |
+| `--no-browser-check` | N/A | Skip browser dependency check | `false` |
+| `--download-resources` | N/A | Download page resources (images, etc.) | `false` |
+| `--max-file-size <MB>` | N/A | Maximum file size for downloaded resources (MB) | `10` |
+| `--help`, `-h` | N/A | Display help information | N/A |
+| `--version`, `-v` | N/A | Display version number | N/A |
+
+### 🧰 Special Commands
+
+Argus also provides some special commands:
+
+```bash
+# Test environment and dependencies
+node argus.js test-env
+
+# Decrypt encrypted files
+node argus.js decrypt <encrypted_file> --key <key> --output <output_file>
+```
+
+### 📝 Usage Examples
+
+#### Using a proxy list:
+
+```bash
+node argus.js https://crawler-test.com --proxies proxies.txt
+```
+
+The proxy file should contain one proxy server address per line, e.g., `http://123.45.67.89:8080`.
+
+#### Limiting crawl depth:
+
+```bash
+node argus.js https://crawler-test.com --depth 2
+```
+
+This will crawl the starting page plus its linked pages and their linked pages (2 levels in total).
+
+#### Adjusting request delay:
+
+```bash
+node argus.js https://crawler-test.com --delay 2000
+```
+
+This sets a 2-second delay between requests, reducing pressure on the target website.
+
+#### Crawling specific test pages on crawler-test.com:
+
+```bash
+# Crawl test page with multiple tables
+node argus.js https://crawler-test.com/tables --format xlsx
+
+# Crawl page with various link types
+node argus.js https://crawler-test.com/links/simple --depth 2
+
+# Crawl page with images and download resources
+node argus.js https://crawler-test.com/image_jpeg --download-resources
+```
+
+#### Enabling advanced performance mode:
+
+```bash
+node argus.js https://crawler-test.com --advanced-mode
+```
+
+Enable advanced performance mode for more efficient crawling and stronger privacy protection.
+
+### 🔒 Advanced Performance Mode
+
+Advanced performance mode (`--advanced-mode`) is designed for users who need more efficient crawling and stronger privacy protection. It offers:
+
+- **Higher concurrency**: Default concurrent requests increased from 10 to 25
+- **Broader coverage**: Default maximum requests increased from 1000 to 5000
+- **Longer patience**: Page navigation timeout increased from 60 seconds to 120 seconds
+- **Enhanced stealth**: More browser fingerprint spoofing techniques
+- **Enhanced proxy usage**: Smarter proxy rotation and failover
+- **Stronger content extraction**: Improved resource extraction and processing capabilities
+- **Randomization**: Randomize viewport sizes, request headers, and other parameters
+
+When using advanced mode, consider these recommendations:
+
+1. Strongly recommended to use a proxy list (`--proxies`)
+2. Consider using the proxy testing feature (`--test-proxies`) to ensure proxy validity
+3. Adjust the delay (`--delay`) if the target website is load-sensitive
+4. Be mindful of the website's terms of service and local laws and regulations
+
+### 📊 How It Works
+
+Argus uses the following technologies to achieve powerful crawling capabilities:
+
+1. **PlaywrightCrawler**: Handles page rendering and navigation
+2. **Puppeteer + Stealth plugins**: Bypasses anti-crawler detection
+3. **Proxy and user agent rotation**: Hides real IP
+4. **Intelligent content analysis**: Chooses appropriate saving format based on content type
+5. **Queue management**: Efficiently processes large numbers of page requests
+6. **Error handling**: Automatically retries failed requests
+
+### 📁 Output File Organization
+
+The crawled content will be organized according to the following structure:
+
+```
+output_dir/
+├── crawler-test.com/
+│   ├── tables/
+│   │   ├── nested.md
+│   │   └── nested.xlsx
+│   ├── links/
+│   │   └── simple.md
+│   └── index.md
+├── logs/
+│   └── crawler.log
+└── downloads/
+    └── images/
+        └── sample.jpg
+```
+
+### 📊 Screenshot Examples
+
+<details>
+<summary>Click to view screenshots</summary>
+
+#### Command Line Output
+![Command Line Output](https://via.placeholder.com/800x300/222222/FFFFFF?text=Command+Line+Output)
+
+#### Markdown Output Example
+![Markdown Result](https://via.placeholder.com/800x300/333333/FFFFFF?text=Markdown+Result)
+
+#### XLSX Output Example
+![XLSX Result](https://via.placeholder.com/800x300/444444/FFFFFF?text=XLSX+Result)
+
+</details>
+
+### 🔧 Troubleshooting
+
+#### Browser Initialization Problems
+
+If you encounter browser initialization problems:
+
+1. Ensure Playwright's browsers are installed: `npx playwright install`
+2. On Linux, install system dependencies: `npx playwright install-deps`
+3. Try running with `--no-browser-check` flag if you've already installed browsers in a custom location
+4. Check if your system meets Playwright's requirements
+
+#### Proxy Issues
+
+If you're having trouble with proxies:
+
+1. Verify proxy format (e.g., `http://user:pass@hostname:port`)
+2. Use the `--test-proxies` flag to validate proxies before crawling
+3. Ensure you have permission to use the proxies
+4. Check network connectivity from your machine to the proxies
+
+#### Content Not Being Saved Correctly
+
+If content extraction doesn't work as expected:
+
+1. Check if the target website uses unusual markup structures
+2. Try different output formats (`--format markdown` or `--format xlsx`)
+3. Increase the navigation timeout for complex pages (`--navigation-timeout 120000`)
+4. For debugging, use `--debug` flag to see detailed logs
+
+### 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -am 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Create a new Pull Request
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+### ⚠️ Notice
+
+When using Argus, please:
+
+- Respect the target website's terms of service
+- Comply with local laws and regulations
+- Do not cause excessive load on the target website
+- Use only for legitimate purposes such as data analysis and research
+
+Be especially mindful of these considerations when using advanced performance mode.
+
+### 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
