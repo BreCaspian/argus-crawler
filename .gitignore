@@ -44,7 +44,6 @@ out/
 
 # 包管理器
 yarn.lock
-package-lock.json
 .npm/
 
 # 操作系统生成的文件
