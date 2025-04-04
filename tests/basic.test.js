@@ -7,6 +7,7 @@ describe('Argus Web Crawler - 基本测试', () => {
   test('应该可以导入ArgusCrawler模块', () => {
     // 仅测试模块是否存在，不实际初始化
     expect(() => {
+      // eslint-disable-next-line no-unused-vars
       const ArgusCrawler = require('../src/ArgusCrawler');
     }).not.toThrow();
   });
@@ -14,6 +15,7 @@ describe('Argus Web Crawler - 基本测试', () => {
   // 测试代理管理器模块是否可以正确导入
   test('应该可以导入ProxyManager模块', () => {
     expect(() => {
+      // eslint-disable-next-line no-unused-vars
       const ProxyManager = require('../src/ProxyManager');
     }).not.toThrow();
   });
@@ -21,6 +23,7 @@ describe('Argus Web Crawler - 基本测试', () => {
   // 测试工具函数模块是否可以正确导入
   test('应该可以导入Utils模块', () => {
     expect(() => {
+      // eslint-disable-next-line no-unused-vars
       const Utils = require('../src/utils');
     }).not.toThrow();
   });

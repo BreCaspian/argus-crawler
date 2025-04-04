@@ -1,3 +1,6 @@
+// 添加ReadableStream polyfill
+require('web-streams-polyfill/ponyfill');
+
 const { PlaywrightCrawler, RequestList, RequestQueue } = require('crawlee');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');

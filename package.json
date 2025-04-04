@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "node argus.js",
-    "test": "jest",
-    "lint": "eslint .",
+    "test": "jest --testEnvironment=node",
+    "lint": "eslint . --fix",
     "postinstall": "node scripts/browser-setup.js"
   },
   "keywords": [
@@ -44,7 +44,10 @@
     "ora": "^5.4.1",
     "playwright": "^1.40.1",
     "puppeteer": "^21.5.1",
-    "turndown": "^7.1.2"
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "turndown": "^7.1.2",
+    "web-streams-polyfill": "^3.2.1"
   },
   "devDependencies": {
     "eslint": "^8.54.0",

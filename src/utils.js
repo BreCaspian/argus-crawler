@@ -1,3 +1,6 @@
+// 添加ReadableStream polyfill
+require('web-streams-polyfill/ponyfill');
+
 const cheerio = require('cheerio');
 const TurndownService = require('turndown');
 const ExcelJS = require('exceljs');
