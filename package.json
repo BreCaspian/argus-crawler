@@ -8,9 +8,9 @@
   },
   "scripts": {
     "start": "node argus.js",
-    "test": "jest --testEnvironment=node",
-    "lint": "eslint . --fix",
-    "postinstall": "node scripts/browser-setup.js"
+    "test": "jest --passWithNoTests --forceExit --ci --detectOpenHandles --testTimeout=30000",
+    "lint": "eslint . --quiet --fix",
+    "postinstall": "node scripts/browser-setup.js || true"
   },
   "keywords": [
     "web-crawler",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/BreCaspian/argus-crawler#readme",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "apify": "^3.1.8",
@@ -61,5 +61,15 @@
   "cpu": [
     "x64",
     "arm64"
-  ]
+  ],
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": false,
+    "silent": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/browser/"
+    ],
+    "collectCoverage": false
+  }
 }

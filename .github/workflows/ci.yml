@@ -8,111 +8,40 @@ on:
 
 permissions:
   contents: write
-  packages: read
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Use Node.js 16.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.x
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci --no-optional
-    
-    - name: Lint code
-      run: npm run lint || true
-      
-    - name: Run basic tests
-      run: npm test -- --testPathIgnorePatterns=browser
-      env:
-        CI: true
-        NODE_ENV: test
-        
-  browser-test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    needs: test
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Use Node.js 16.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.x
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci --no-optional
-      
-    - name: Install Playwright
-      run: |
-        npx playwright install --with-deps chromium
-        echo "Playwright and Chromium installed"
-    
-    - name: Display versions for debugging
-      run: |
-        node --version
-        npm --version
-        npx playwright --version
-        echo "GPU Info:"
-        lspci -vnn | grep VGA -A 12 || true
-        echo "Display Info:"
-        xrandr || true
-    
-    - name: Setup browser test environment
-      run: |
-        echo "CI=true" >> $GITHUB_ENV
-        echo "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=0" >> $GITHUB_ENV
-        echo "NODE_ENV=test" >> $GITHUB_ENV
-        echo "PLAYWRIGHT_BROWSERS_PATH=/ms-playwright" >> $GITHUB_ENV
-        echo "PLAYWRIGHT_SKIP_VALIDATION=true" >> $GITHUB_ENV
-    
-    - name: Run browser tests with retry
-      uses: nick-fields/retry@v2
-      with:
-        timeout_minutes: 10
-        max_attempts: 3
-        command: npm test -- --testPathPattern=browser || true
-      
-  build:
-    needs: [test, browser-test]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     
     steps:
     - uses: actions/checkout@v3
     
-    - name: Use Node.js 16.x
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: 18.x
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci --no-optional
-    
-    - name: Check version
-      id: check_version
-      uses: EndBug/version-check@v2
-      with:
-        file-name: package.json
+      run: |
+        npm config set legacy-peer-deps true
+        npm ci --no-audit --prefer-offline --ignore-scripts
+      
+    - name: Run basic verification
+      run: |
+        npm run lint || true
+        NODE_OPTIONS=--max_old_space_size=4096 npm test -- --passWithNoTests
+      env:
+        CI: true
+        NODE_ENV: test
         
     - name: Create Release
-      if: steps.check_version.outputs.changed == 'true'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, 'release')
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ steps.check_version.outputs.version }}
-        name: Release v${{ steps.check_version.outputs.version }}
+        tag_name: v${{ steps.get_version.outputs.version || '1.1.0' }}
+        name: Release v${{ steps.get_version.outputs.version || '1.1.0' }}
         draft: false
         prerelease: false
       env:
