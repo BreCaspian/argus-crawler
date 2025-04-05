@@ -287,22 +287,6 @@ output_dir/
         └── sample.jpg
 ```
 
-### 📊 截图示例
-
-<details>
-<summary>点击查看截图</summary>
-
-#### 命令行输出
-![命令行输出](https://via.placeholder.com/800x300/222222/FFFFFF?text=命令行输出)
-
-#### Markdown输出示例
-![Markdown结果](https://via.placeholder.com/800x300/333333/FFFFFF?text=Markdown结果)
-
-#### XLSX输出示例
-![XLSX结果](https://via.placeholder.com/800x300/444444/FFFFFF?text=XLSX结果)
-
-</details>
-
 ### 🔧 问题排查
 
 #### 浏览器初始化问题
@@ -635,22 +619,6 @@ output_dir/
     └── images/
         └── sample.jpg
 ```
-
-### 📊 Screenshot Examples
-
-<details>
-<summary>Click to view screenshots</summary>
-
-#### Command Line Output
-![Command Line Output](https://via.placeholder.com/800x300/222222/FFFFFF?text=Command+Line+Output)
-
-#### Markdown Output Example
-![Markdown Result](https://via.placeholder.com/800x300/333333/FFFFFF?text=Markdown+Result)
-
-#### XLSX Output Example
-![XLSX Result](https://via.placeholder.com/800x300/444444/FFFFFF?text=XLSX+Result)
-
-</details>
 
 ### 🔧 Troubleshooting
 
